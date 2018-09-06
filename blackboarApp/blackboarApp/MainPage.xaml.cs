@@ -22,10 +22,10 @@ namespace blackboarApp
             Device.BeginInvokeOnMainThread(async () =>
             {
                 RestUser client = new RestUser();
-                var resulttoken = await client.Get<resultToken>("http://learn/api/public/v1/oauth2/authorizationcode");
+                var resulttoken = await client.Authorize();
                 if (resulttoken != null)
                 {
-                    LabelChange.Text = resulttoken.result.client_id;
+                    LabelChange.Text = resulttoken.access_token;
                 }
             });
         }
